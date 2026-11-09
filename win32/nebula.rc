@@ -1,0 +1,33 @@
+#include <windows.h>
+#include <commctrl.h>
+#include "resource.h"
+
+1 RT_MANIFEST "nebula.manifest"
+
+IDD_CONFIG DIALOGEX 0, 0, 250, 168
+STYLE DS_MODALFRAME | DS_CENTER | DS_SHELLFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Nebula Settings"
+FONT 8, "MS Shell Dlg"
+BEGIN
+	LTEXT		"Nebula", -1, 8, 6, 234, 10
+	LTEXT		"Effect from corTeX / Optimum. Ported from the Haiku screen saver.", -1, 8, 17, 234, 10
+
+	LTEXT		"Internal width:", -1, 8, 36, 70, 8
+	COMBOBOX	IDC_WIDTH, 84, 34, 158, 120, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+	LTEXT		"Color:", -1, 8, 52, 70, 8
+	COMBOBOX	IDC_SCHEME, 84, 50, 158, 120, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+	LTEXT		"Format:", -1, 8, 68, 70, 8
+	COMBOBOX	IDC_BORDER, 84, 66, 158, 120, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+
+	AUTOCHECKBOX	"Enable motion blur", IDC_BLUR, 84, 84, 158, 10, WS_TABSTOP
+
+	LTEXT		"Speed:", -1, 8, 104, 70, 8
+	CONTROL		"", IDC_SPEED, "msctls_trackbar32", TBS_AUTOTICKS | WS_TABSTOP, 80, 100, 130, 18
+	LTEXT		"", IDC_SPEED_VAL, 214, 104, 30, 8
+	LTEXT		"Max frames/s:", -1, 8, 124, 70, 8
+	CONTROL		"", IDC_FPS, "msctls_trackbar32", TBS_AUTOTICKS | WS_TABSTOP, 80, 120, 130, 18
+	LTEXT		"", IDC_FPS_VAL, 214, 124, 30, 8
+
+	DEFPUSHBUTTON	"OK", IDOK, 138, 148, 50, 14, WS_TABSTOP
+	PUSHBUTTON	"Cancel", IDCANCEL, 192, 148, 50, 14, WS_TABSTOP
+END
